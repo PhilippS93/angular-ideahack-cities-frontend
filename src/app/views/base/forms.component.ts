@@ -7,6 +7,8 @@ export class FormsComponent {
 
   constructor() { }
 
+  team_1 = {color: 'blue', };
+
 
 
 }
