@@ -1,0 +1,64 @@
+<app-header
+  [navbarBrandRouterLink]="['/dashboard']"
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [sidebarToggler]="'lg'"
+  [asideMenuToggler]="'lg'">
+
+  <ul class="nav navbar-nav ml-auto">
+  </ul>
+</app-header>
+
+<div class="app-body">
+
+  <app-sidebar [fixed]="true" [display]="'lg'">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+
+  <!-- Main content -->
+
+  <main class="main">
+      <router-outlet></router-outlet>
+      <!-- <agm-map [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'> </agm-map> -->
+
+  </main>
+
+  <app-aside [fixed]="true" [display]="false">
+
+    <div class="list-group list-group-accent">
+
+      <div class="list-group-item bg-light text-center font-weight-bold text-muted text-uppercase small">Müllcontainer</div>
+
+      <div class="list-group-item list-group-item-accent-primary list-group-item-divider">
+        <div>
+          <strong>Papier</strong>
+        </div>
+        <small class="text-muted mr-3">
+          <i class="icon-tag"></i>  42u843u8912u43</small>
+
+        <small class="text-muted">
+          <i class="icon-location-pin"></i>  43%</small>
+      </div>
+
+      <div class="list-group-item list-group-item-accent-warning list-group-item-divider">
+          <div>
+            <strong>Plastik</strong>
+          </div>
+          <small class="text-muted mr-3">
+            <i class="icon-tag"></i>  42u843u8912u43</small>
+
+          <small class="text-muted">
+            <i class="icon-location-pin"></i>  43%</small>
+        </div>
+
+    </div>
+  </app-aside>
+
+</div>
+
+<app-footer>
+  <span><a href="https://coreui.io">IdeaHack 2019</a></span>
+  <span class="ml-auto">TWASTE V 0.1</span>
+</app-footer>

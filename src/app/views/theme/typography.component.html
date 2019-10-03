@@ -1,0 +1,47 @@
+<agm-map *ngIf="coordinates" [zoom]="13" [latitude]='coordinates.latitude' [longitude]='coordinates.longitude' [mapTypeId]='mapType'>
+
+    <agm-marker
+      [latitude]="center_lat"
+      [longitude]="center_lng"
+      [iconUrl]="center_data">
+  </agm-marker>
+
+  <div *ngFor="let marker of trashcans; let i = index;">
+
+    <agm-marker
+      *ngIf="marker.full >= 0.7"
+      [latitude]="marker.latitude"
+      [longitude]="marker.longitude"
+      [iconUrl]="'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000'">
+    </agm-marker>
+
+    <agm-marker
+      *ngIf="marker.full > 0.3 && marker.full < 0.7"
+      [latitude]="marker.latitude"
+      [longitude]="marker.longitude"
+      [iconUrl]="'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFFF00'">
+    </agm-marker>
+
+    <agm-marker
+      *ngIf="marker.full <= 0.3"
+      [latitude]="marker.latitude"
+      [longitude]="marker.longitude"
+      [iconUrl]="'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|00FF04'">
+    </agm-marker>
+  </div>
+
+  <ng-container *ngFor="let direction of directions">
+    <agm-direction
+     [origin]="direction.start"
+     [destination]="direction.target"
+     [renderOptions]="{suppressMarkers: true}">
+      </agm-direction>
+    </ng-container>
+
+
+</agm-map>
+
+<!-- <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction [origin]="origin" [destination]="destination">
+    </agm-direction>
+  </agm-map> -->
